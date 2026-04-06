@@ -1,1 +1,689 @@
-<h1>This is my public site</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christopher G. Love, PhD | Computational Biology & Bioinformatics</title>
+  <meta
+    name="description"
+    content="Portfolio website for Christopher G. Love, PhD, showcasing computational biology, translational genomics, machine learning, and bioinformatics leadership."
+  >
+  <style>
+    :root {
+      --bg: #f4efe8;
+      --paper: rgba(255, 252, 247, 0.84);
+      --panel: #fffaf3;
+      --panel-strong: #f7efe4;
+      --ink: #1c2328;
+      --muted: #54626f;
+      --line: rgba(28, 35, 40, 0.12);
+      --accent: #b24a2d;
+      --accent-deep: #7c2f1c;
+      --accent-soft: #f0d6c7;
+      --shadow: 0 20px 50px rgba(62, 40, 24, 0.12);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(178, 74, 45, 0.18), transparent 32%),
+        radial-gradient(circle at 85% 18%, rgba(96, 125, 139, 0.14), transparent 20%),
+        linear-gradient(180deg, #f9f3eb 0%, var(--bg) 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-deep);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .page {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+      padding: 1rem 0 4rem;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      margin-top: 1rem;
+      padding: 4rem;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 32px;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 243, 0.95), rgba(245, 233, 220, 0.92)),
+        var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -4rem -4rem auto;
+      width: 16rem;
+      height: 16rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(178, 74, 45, 0.22), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow,
+    .section-label {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(178, 74, 45, 0.1);
+      color: var(--accent-deep);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 10ch;
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      letter-spacing: -0.04em;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr);
+      gap: 2rem;
+      align-items: end;
+    }
+
+    .lead {
+      max-width: 42rem;
+      margin: 1.4rem 0 0;
+      font-size: 1.14rem;
+      color: var(--muted);
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.8rem;
+    }
+
+    .button,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 2.9rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button svg,
+    .button-secondary svg {
+      width: 1.05rem;
+      height: 1.05rem;
+      flex: 0 0 auto;
+      fill: currentColor;
+    }
+
+    .button {
+      background: var(--accent-deep);
+      color: #fffaf3;
+      box-shadow: 0 12px 25px rgba(124, 47, 28, 0.2);
+    }
+
+    .button-secondary {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .button:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-card {
+      padding: 1.4rem;
+      border: 1px solid rgba(28, 35, 40, 0.08);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.56);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card p {
+      margin: 0.35rem 0;
+      color: var(--muted);
+    }
+
+    .hero-card .contact-note {
+      margin-top: 0.9rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .hero-card strong {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 2.2rem 0 0;
+    }
+
+    .skills-spotlight {
+      margin-top: 1.6rem;
+      padding: 1.5rem;
+      border-radius: 28px;
+      border: 1px solid rgba(28, 35, 40, 0.08);
+      background:
+        linear-gradient(135deg, rgba(124, 47, 28, 0.96), rgba(178, 74, 45, 0.88)),
+        var(--accent-deep);
+      color: #fff8f2;
+      box-shadow: 0 22px 40px rgba(124, 47, 28, 0.22);
+    }
+
+    .skills-spotlight .section-label {
+      margin-bottom: 0.8rem;
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff8f2;
+    }
+
+    .skills-spotlight h2 {
+      max-width: 15ch;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.04em;
+    }
+
+    .skills-spotlight p {
+      max-width: 46rem;
+      margin: 0.9rem 0 0;
+      color: rgba(255, 248, 242, 0.86);
+    }
+
+    .skill-pills {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 1.4rem;
+    }
+
+    .skill-pill {
+      padding: 1rem 1.05rem;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+    }
+
+    .skill-pill strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 248, 242, 0.76);
+    }
+
+    .skill-pill span {
+      display: block;
+      font-size: 1.05rem;
+      line-height: 1.35;
+    }
+
+    .stat {
+      padding: 1.2rem;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(28, 35, 40, 0.07);
+      text-align: left;
+    }
+
+    .stat .value {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .stat .label {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    main {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.2rem;
+    }
+
+    section {
+      padding: 2rem;
+      border: 1px solid rgba(28, 35, 40, 0.08);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .cards {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .skill-card,
+    .timeline-item,
+    .publication,
+    .highlight {
+      padding: 1.2rem;
+      border-radius: 20px;
+      background: var(--panel);
+      border: 1px solid rgba(28, 35, 40, 0.08);
+    }
+
+    .skill-card h3,
+    .timeline-item h3,
+    .highlight h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .skills-list,
+    .bullet-list {
+      margin: 0.8rem 0 0;
+      padding-left: 1.15rem;
+    }
+
+    .skills-list li,
+    .bullet-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .timeline-item .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 0.3rem 0 0.9rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .highlights {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.4rem;
+    }
+
+    .publication {
+      font-size: 0.98rem;
+    }
+
+    footer {
+      padding: 2rem 0 0;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      section {
+        padding: 1.6rem;
+      }
+
+      .hero-grid,
+      .grid,
+      .skill-pills,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero,
+      section,
+      .stat {
+        animation: rise 700ms ease both;
+      }
+
+      section:nth-of-type(2) {
+        animation-delay: 80ms;
+      }
+
+      section:nth-of-type(3) {
+        animation-delay: 140ms;
+      }
+
+      section:nth-of-type(4) {
+        animation-delay: 200ms;
+      }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Computational Biology • Translational Genomics</span>
+          <h1>Christopher G. Love, PhD</h1>
+          <p class="lead">
+            Senior bioinformatician and computational biologist building robust, clinically relevant
+            analytics from complex sequencing data. My work spans translational cancer genomics,
+            rare disease diagnostics, machine learning, and reproducible multi-omic pipelines.
+          </p>
+          <div class="hero-links">
+            <a class="button" href="#" id="contact-link">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5zm2.2-.5 6.8 5.64a1 1 0 0 0 1.28 0L20.1 5H5.2zm15.8 1.3-6.44 5.33a3 3 0 0 1-3.82 0L4 6.3v12.2c0 .28.22.5.5.5h15c.28 0 .5-.22.5-.5z"/>
+              </svg>
+            </a>
+            <a class="button-secondary" href="https://www.linkedin.com/in/christopher-love/" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.94 8.5V19H3.5V8.5zM7.16 5.26c0 1.02-.77 1.84-1.95 1.84h-.02c-1.13 0-1.89-.82-1.89-1.84 0-1.04.79-1.83 1.94-1.83s1.89.79 1.92 1.83M20.5 12.58V19h-3.43v-6.02c0-1.51-.54-2.54-1.89-2.54-1.03 0-1.64.69-1.9 1.36-.1.24-.12.57-.12.91V19H9.73s.05-9.53 0-10.5h3.43v1.49c.46-.71 1.28-1.72 3.11-1.72 2.27 0 3.98 1.48 3.98 4.66"/>
+              </svg>
+            </a>
+            <a class="button-secondary" href="https://scholar.google.com/citations?hl=en&user=tC9YX6MAAAAJ" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 1 9l11 6 9-4.91V17h2V9z"/>
+                <path d="M5 12.73V16c0 1.8 3.13 3.5 7 3.5s7-1.7 7-3.5v-3.27l-7 3.82z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="stats" aria-label="Career statistics">
+        <div class="stat">
+          <span class="value">32</span>
+          <span class="label">publications</span>
+        </div>
+        <div class="stat">
+          <span class="value">7</span>
+          <span class="label">first-author papers</span>
+        </div>
+        <div class="stat">
+          <span class="value">2,588</span>
+          <span class="label">citations</span>
+        </div>
+        <div class="stat">
+          <span class="value">24</span>
+          <span class="label">h-index</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="skills-spotlight">
+        <span class="section-label">Core Skills</span>
+        <h2>Technical strengths that define my work</h2>
+        <p>
+          I build clinically meaningful genomics workflows by combining deep biological context,
+          practical statistics, reproducible engineering, and translational delivery across research
+          and diagnostic settings.
+        </p>
+        <div class="skill-pills">
+          <article class="skill-pill">
+            <strong>Programming</strong>
+            <span>R, Bioconductor, Python, SQL, Snakemake, web application prototyping</span>
+          </article>
+          <article class="skill-pill">
+            <strong>Analytics</strong>
+            <span>Machine learning, classification, regression, clustering, QC, normalization, batch correction</span>
+          </article>
+          <article class="skill-pill">
+            <strong>Domain Expertise</strong>
+            <span>NGS, multi-omics, microRNA profiling, biomarker development, oncology, rare disease</span>
+          </article>
+          <article class="skill-pill">
+            <strong>Platforms</strong>
+            <span>HPC, AWS, Azure, translational pipelines, regulated and accreditation-ready analysis</span>
+          </article>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section>
+          <span class="section-label">What I Do</span>
+          <h2>Specialised analytical work for research and clinical genomics</h2>
+          <div class="cards">
+            <article class="skill-card">
+              <h3>Computational & statistical methods</h3>
+              <p class="muted">Strong applied background across statistical modelling, machine learning, and reproducible data analysis.</p>
+              <ul class="skills-list">
+                <li>R and Bioconductor, Python, SQL, Snakemake, HPC, AWS and Azure</li>
+                <li>Quality control, normalization, batch correction, clustering, regression and classification</li>
+                <li>Robust workflow design for regulated, publication-grade, and collaborative environments</li>
+              </ul>
+            </article>
+            <article class="skill-card">
+              <h3>Omics, oncology, and biomarker development</h3>
+              <p class="muted">Focused on extracting clinically meaningful insight from high-throughput molecular data.</p>
+              <ul class="skills-list">
+                <li>NGS expression assays, genomics, proteomics, epigenetics, and multi-modal integration</li>
+                <li>Translational biomarker development in oncology and rare disease</li>
+                <li>FFPE and liquid biopsy workflows, microRNA profiling, and clinical assay validation</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <span class="section-label">Highlights</span>
+          <h2>Selected impact</h2>
+          <div class="highlights">
+            <article class="highlight">
+              <h3>Clinical translation</h3>
+              <p class="muted">Led development of an R-based machine learning pipeline underpinning a NATA-accredited melanoma diagnostic.</p>
+            </article>
+            <article class="highlight">
+              <h3>Cross-functional leadership</h3>
+              <p class="muted">Worked closely with scientists, clinicians, curators, and commercial teams to turn analysis into actionable outcomes.</p>
+            </article>
+            <article class="highlight">
+              <h3>Scientific contribution</h3>
+              <p class="muted">Published across cancer genomics, diagnostics, and translational bioinformatics in high-impact journals.</p>
+            </article>
+            <article class="highlight">
+              <h3>Community involvement</h3>
+              <p class="muted">ABACBS executive representative, conference organiser, lecturer, and contributor to large-scale genomics software initiatives.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <section>
+        <span class="section-label">Experience</span>
+        <h2>Career path across diagnostics, cancer genomics, and rare disease</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <h3>Senior Bioinformatician · Geneseq Biosciences</h3>
+            <div class="meta">
+              <span>Melbourne</span>
+              <span>January 2022 – Present</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Led bioinformatics development for a first-in-class invasive melanoma diagnostic spanning FFPE tissue and liquid biopsy.</li>
+              <li>Built validated machine learning pipelines and published diagnostic and prognostic signatures across sequencing platforms.</li>
+              <li>Authored validation reports and analytical documentation supporting regulatory and accreditation requirements.</li>
+              <li>Implemented an LLM-supported web application for converting histopathology reports into prognostic assessments.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <h3>Translational Bioinformatician · Murdoch Children’s Research Institute</h3>
+            <div class="meta">
+              <span>Melbourne</span>
+              <span>November 2020 – December 2021</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Supported complex clinical genomics cases in multidisciplinary rare disease diagnostics and research teams.</li>
+              <li>Developed pipelines for aberrant splicing and regulatory event detection beyond standard sequencing interpretation.</li>
+              <li>Integrated gene expression and sequence variant evidence to resolve difficult diagnostic cases.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <h3>Senior Bioinformatics Researcher · Peter MacCallum Cancer Centre</h3>
+            <div class="meta">
+              <span>Melbourne</span>
+              <span>January 2017 – November 2020</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Maintained and extended clinical genomics database systems for tumour profiling and variant interpretation.</li>
+              <li>Supported clinical pathology teams with rare and novel variant interpretation for precision oncology.</li>
+              <li>Delivered software training and advanced analysis on variant classification and sequencing artefacts.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <h3>Postdoctoral Bioinformatics Researcher · Walter and Eliza Hall Institute</h3>
+            <div class="meta">
+              <span>Melbourne</span>
+              <span>September 2012 – January 2017</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Built multi-omic colorectal cancer analysis pipelines integrating expression and DNA methylation data.</li>
+              <li>Supported experimental design and functional genomics analysis across cell line, mouse, and zebrafish models.</li>
+              <li>Contributed to successful NHMRC grant activity and multiple collaborative publications.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section>
+          <span class="section-label">Education & Service</span>
+          <h2>Training, leadership, and professional contribution</h2>
+          <div class="cards">
+            <article class="skill-card">
+              <h3>Education</h3>
+              <ul class="bullet-list">
+                <li>PhD, Bioinformatics · La Trobe University · 2007</li>
+                <li>MSc, Bioinformatics · University of Exeter · 2002</li>
+                <li>BSc, Applied Biology · University of Bath · 2001</li>
+              </ul>
+            </article>
+            <article class="skill-card">
+              <h3>Professional roles</h3>
+              <ul class="bullet-list">
+                <li>ABACBS Executive Committee professional bioinformatics representative, 2026</li>
+                <li>Organising committee member for SBEI 2025</li>
+                <li>Guest lecturer on epigenetics for RMIT MSc Biotechnology students</li>
+                <li>Lead developer in a AUD $1.3M genomics software integration project published in NAR</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <span class="section-label">Selected Publications</span>
+          <h2>Recent and representative work</h2>
+          <div class="publication-list">
+            <article class="publication">Love CG, Coombs L, Van Laar R. RNA-seq validation of microRNA expression signatures for precision melanoma diagnosis and prognostic stratification. <em>BMC Medical Genomics</em>, 2024.</article>
+            <article class="publication">Van Laar R, Coombs L, Love CG et al. Validation of a prognostic microRNA signature in early-stage melanoma across NanoString and RNA-sequencing platforms. <em>EJC Skin Cancer</em>, 2026.</article>
+            <article class="publication">Van Laar R, Latif B, King S, Love CG et al. Validation of a microRNA liquid biopsy assay for diagnosis and risk stratification of invasive cutaneous melanoma. <em>British Journal of Dermatology</em>, 2023.</article>
+            <article class="publication">Doig KD, Love CG et al. Findings from precision oncology in the clinic: rare, novel variants are a significant contributor to scaling molecular diagnostics. <em>BMC Medical Genomics</em>, 2022.</article>
+            <article class="publication">Poh A, Love CG et al. Therapeutic inhibition of the SRC-kinase HCK facilitates T cell tumor infiltration and improves response to immunotherapy. <em>Science Advances</em>, 2022.</article>
+          </div>
+          <p class="muted">See the full publication record on <a href="https://scholar.google.com/citations?hl=en&user=tC9YX6MAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>Built for GitHub Pages as a concise professional profile for Christopher G. Love, PhD.</p>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      var link = document.getElementById("contact-link");
+      if (!link) return;
+
+      var user = ["chris", "love", "phd"].join(".");
+      var domain = ["gmail", "com"].join(".");
+
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "mailto:" + user + "@" + domain;
+      });
+    }());
+  </script>
+</body>
+</html>
