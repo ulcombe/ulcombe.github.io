@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christopher G. Love, PhD | Computational Biology & Bioinformatics</title>
+  <title>Christopher Love, PhD | Computational Biology & Bioinformatics</title>
   <meta
     name="description"
-    content="Portfolio website for Christopher G. Love, PhD, showcasing computational biology, translational genomics, machine learning, and bioinformatics leadership."
+    content="Portfolio website for Christopher Love, PhD, showcasing computational biology, translational genomics, machine learning, and bioinformatics leadership."
   >
   <style>
     :root {
@@ -273,6 +273,41 @@
       line-height: 1.35;
     }
 
+    .skill-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1.6rem;
+    }
+
+    .skill-tab {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff8f2;
+      border-radius: 999px;
+      padding: 0.7rem 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .skill-tab:hover,
+    .skill-tab[aria-selected="true"] {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .tab-panel {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
     .stat {
       padding: 1.2rem;
       border-radius: 22px;
@@ -442,7 +477,7 @@
 <body>
   <div class="page">
     <header class="hero">
-      <h1>Christopher G. Love, PhD</h1>
+      <h1>Christopher Love, PhD</h1>
       <div class="hero-grid">
         <div>
           <span class="eyebrow">Computational Biology • Translational Genomics</span>
@@ -500,23 +535,49 @@
           practical statistics, reproducible engineering, and translational delivery across research
           and diagnostic settings.
         </p>
-        <div class="skill-pills">
-          <article class="skill-pill">
-            <strong>Programming</strong>
-            <span>R, Bioconductor, Python, SQL, Snakemake, web application prototyping</span>
-          </article>
-          <article class="skill-pill">
-            <strong>Analytics</strong>
-            <span>Machine learning, classification, regression, clustering, QC, normalization, batch correction</span>
-          </article>
-          <article class="skill-pill">
-            <strong>Domain Expertise</strong>
-            <span>NGS, multi-omics, microRNA profiling, biomarker development, oncology, rare disease</span>
-          </article>
-          <article class="skill-pill">
-            <strong>Platforms</strong>
-            <span>HPC, AWS, Azure, translational pipelines, regulated and accreditation-ready analysis</span>
-          </article>
+        <div class="skill-tabs" role="tablist" aria-label="Specialist skills">
+          <button class="skill-tab" type="button" role="tab" aria-selected="true" aria-controls="bioinformatics-panel" id="bioinformatics-tab">Bioinformatics Specialist</button>
+          <button class="skill-tab" type="button" role="tab" aria-selected="false" aria-controls="data-science-panel" id="data-science-tab">Data Science Specialist</button>
+        </div>
+        <div class="tab-panel active" id="bioinformatics-panel" role="tabpanel" aria-labelledby="bioinformatics-tab">
+          <div class="skill-pills">
+            <article class="skill-pill">
+              <strong>Programming</strong>
+              <span>R, Bioconductor, Python, SQL, Snakemake, web application prototyping</span>
+            </article>
+            <article class="skill-pill">
+              <strong>Analytics</strong>
+              <span>Machine learning, classification, regression, clustering, QC, normalization, batch correction</span>
+            </article>
+            <article class="skill-pill">
+              <strong>Domain Expertise</strong>
+              <span>NGS, multi-omics, microRNA profiling, biomarker development, oncology, rare disease</span>
+            </article>
+            <article class="skill-pill">
+              <strong>Platforms</strong>
+              <span>HPC, AWS, Azure, translational pipelines, regulated and accreditation-ready analysis</span>
+            </article>
+          </div>
+        </div>
+        <div class="tab-panel" id="data-science-panel" role="tabpanel" aria-labelledby="data-science-tab">
+          <div class="skill-pills">
+            <article class="skill-pill">
+              <strong>Data Analysis</strong>
+              <span>Exploratory analysis, feature engineering, predictive modelling, statistical inference</span>
+            </article>
+            <article class="skill-pill">
+              <strong>Machine Learning</strong>
+              <span>Classification pipelines, validation design, performance assessment, model interpretation</span>
+            </article>
+            <article class="skill-pill">
+              <strong>Data Engineering</strong>
+              <span>Workflow automation, reproducible pipelines, structured data integration, scalable reporting</span>
+            </article>
+            <article class="skill-pill">
+              <strong>Decision Support</strong>
+              <span>Translating complex datasets into practical insights for research, clinical, and commercial teams</span>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -670,12 +731,29 @@
     </main>
 
     <footer>
-      <p>Built for GitHub Pages as a concise professional profile for Christopher G. Love, PhD.</p>
+      <p>Built for GitHub Pages as a concise professional profile for Christopher Love, PhD.</p>
     </footer>
   </div>
   <script>
     (function () {
       var link = document.getElementById("contact-link");
+      var tabs = document.querySelectorAll(".skill-tab");
+      var panels = document.querySelectorAll(".tab-panel");
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          var target = tab.getAttribute("aria-controls");
+
+          tabs.forEach(function (item) {
+            item.setAttribute("aria-selected", String(item === tab));
+          });
+
+          panels.forEach(function (panel) {
+            panel.classList.toggle("active", panel.id === target);
+          });
+        });
+      });
+
       if (!link) return;
 
       var user = ["chris", "love", "phd"].join(".");
