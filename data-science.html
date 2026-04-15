@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Science Portfolio | Christopher Love, PhD</title>
+  <meta
+    name="description"
+    content="Data science portfolio for Christopher Love, PhD, showcasing modelling, statistical learning, and analytical methods used across publications and translational genomics programs."
+  >
+  <style>
+    :root {
+      --bg: #f4efe8;
+      --paper: rgba(255, 252, 247, 0.84);
+      --panel: #fffaf3;
+      --panel-strong: #f7efe4;
+      --ink: #1c2328;
+      --muted: #54626f;
+      --line: rgba(28, 35, 40, 0.12);
+      --accent: #b24a2d;
+      --accent-deep: #7c2f1c;
+      --shadow: 0 20px 50px rgba(62, 40, 24, 0.12);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(178, 74, 45, 0.18), transparent 32%),
+        radial-gradient(circle at 85% 18%, rgba(96, 125, 139, 0.14), transparent 20%),
+        linear-gradient(180deg, #f9f3eb 0%, var(--bg) 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-deep);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .page {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+      padding: 1rem 0 4rem;
+    }
+
+    .site-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .site-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.6rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid rgba(28, 35, 40, 0.08);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.5);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a[aria-current="page"] {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .hero,
+    section {
+      padding: 2rem;
+      border: 1px solid rgba(28, 35, 40, 0.08);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      margin-top: 1rem;
+      padding: 3.5rem;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 243, 0.95), rgba(245, 233, 220, 0.92)),
+        var(--paper);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -3rem -3rem auto;
+      width: 14rem;
+      height: 14rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(28, 35, 40, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow,
+    .section-label {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(28, 35, 40, 0.08);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 13ch;
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      letter-spacing: -0.05em;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      max-width: 50rem;
+      margin: 1.2rem 0 0;
+      font-size: 1.12rem;
+      color: var(--muted);
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.8rem;
+    }
+
+    .button,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.9rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button {
+      background: var(--ink);
+      color: #fffaf3;
+      box-shadow: 0 12px 25px rgba(28, 35, 40, 0.18);
+    }
+
+    .button-secondary {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .button:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-metrics,
+    .methods-grid,
+    .publication-grid,
+    .impact-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .hero-metrics {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 2rem;
+    }
+
+    .methods-grid,
+    .publication-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .impact-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+    }
+
+    .metric,
+    .method-card,
+    .publication-card,
+    .impact-card {
+      padding: 1.35rem;
+      border-radius: 22px;
+      background: var(--panel);
+      border: 1px solid rgba(28, 35, 40, 0.08);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.7rem;
+      letter-spacing: -0.04em;
+    }
+
+    .metric span,
+    .muted {
+      color: var(--muted);
+    }
+
+    .metric span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .method-card h3,
+    .publication-card h3,
+    .impact-card h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1.15rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 0.8rem 0 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .meta-row span {
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: var(--panel-strong);
+      color: var(--accent-deep);
+    }
+
+    .bullet-list {
+      margin: 0.8rem 0 0;
+      padding-left: 1.15rem;
+    }
+
+    .bullet-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    footer {
+      padding: 2rem 0 0;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      section {
+        padding: 1.6rem;
+      }
+
+      .hero-metrics,
+      .methods-grid,
+      .publication-grid,
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero,
+      section,
+      .metric,
+      .method-card,
+      .publication-card,
+      .impact-card {
+        animation: rise 720ms ease both;
+      }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Profile</a>
+      <a href="portfolio.html">Bioinformatics</a>
+      <a href="data-science.html" aria-current="page">Data Science</a>
+    </nav>
+
+    <header class="hero">
+      <span class="eyebrow">Data Science Portfolio</span>
+      <h1>Data science skills</h1>
+      <p class="lead">
+        This portfolio reframes the publication record through a data science lens: predictive modelling,
+        validation strategy, feature selection, classification, multi-factor interpretation, and practical
+        statistical workflows used to move from noisy biological data to defensible conclusions.
+      </p>
+      <div class="hero-links">
+        <a class="button" href="portfolio.html">View bioinformatics portfolio</a>
+        <a class="button-secondary" href="https://scholar.google.com/citations?hl=en&user=tC9YX6MAAAAJ" target="_blank" rel="noreferrer">Publication record</a>
+      </div>
+      <div class="hero-metrics" aria-label="Data science highlights">
+        <article class="metric">
+          <strong>Predictive modelling</strong>
+          <span>Classification and risk stratification across translational assay programs</span>
+        </article>
+        <article class="metric">
+          <strong>Validation logic</strong>
+          <span>Cross-cohort, cross-platform, and clinically aware assessment of model behavior</span>
+        </article>
+        <article class="metric">
+          <strong>Decision support</strong>
+          <span>Interpretable outputs shaped for researchers, clinicians, and product stakeholders</span>
+        </article>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <span class="section-label">Data Science Skills</span>
+        <h2>Methods demonstrated across publications</h2>
+        <div class="methods-grid">
+          <article class="method-card">
+            <h3>Classification and prognostic modelling</h3>
+            <p class="muted">Built models that separate diagnostic classes and assign prognostic risk using structured molecular features.</p>
+            <div class="meta-row">
+              <span>Supervised learning</span>
+              <span>Risk scoring</span>
+              <span>Model comparison</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Created classification workflows for melanoma diagnosis and staging-relevant risk assessment.</li>
+              <li>Balanced predictive performance with interpretability and deployment constraints.</li>
+              <li>Assessed performance in validation cohorts rather than relying on discovery-only success.</li>
+            </ul>
+          </article>
+
+          <article class="method-card">
+            <h3>Feature selection and dimensionality reduction</h3>
+            <p class="muted">Worked with high-dimensional omics data where selecting robust signal matters as much as fitting the model itself.</p>
+            <div class="meta-row">
+              <span>Feature engineering</span>
+              <span>Signal prioritization</span>
+              <span>High-dimensional data</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Identified compact biomarker signatures from large candidate feature spaces.</li>
+              <li>Focused on stability across cohorts and assay platforms rather than overfitting to one dataset.</li>
+              <li>Used biologically informed prioritization alongside empirical performance measures.</li>
+            </ul>
+          </article>
+
+          <article class="method-card">
+            <h3>Validation, benchmarking, and generalization</h3>
+            <p class="muted">Designed evaluation strategies to test whether models remain useful across datasets, technologies, and sample types.</p>
+            <div class="meta-row">
+              <span>Cross-platform validation</span>
+              <span>Robustness checks</span>
+              <span>Benchmarking</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Compared model behavior between RNA-seq, microRNA assays, and clinically constrained workflows.</li>
+              <li>Tested whether signatures generalized across discovery and external validation settings.</li>
+              <li>Interpreted failure modes and variance sources instead of treating metrics as isolated endpoints.</li>
+            </ul>
+          </article>
+
+          <article class="method-card">
+            <h3>Statistical analysis and evidence synthesis</h3>
+            <p class="muted">Combined multiple evidence layers into publication-ready and clinically intelligible conclusions.</p>
+            <div class="meta-row">
+              <span>Inference</span>
+              <span>Exploratory analysis</span>
+              <span>Reporting</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Integrated expression changes, variant context, and metadata into coherent analytic narratives.</li>
+              <li>Used structured QC and normalization to make downstream statistical comparisons defensible.</li>
+              <li>Translated technical findings into figures, reports, and cross-functional recommendations.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="impact-grid">
+        <div>
+          <span class="section-label">Publication Mapping</span>
+          <h2>Where these methods show up</h2>
+          <div class="publication-grid">
+            <article class="publication-card">
+              <h3>Melanoma RNA-seq signature validation</h3>
+              <p class="muted"><em>BMC Medical Genomics</em>, 2024</p>
+              <ul class="bullet-list">
+                <li>Predictive modelling for diagnostic and prognostic separation</li>
+                <li>Validation design across cohorts</li>
+                <li>Performance interpretation in translational assay development</li>
+              </ul>
+            </article>
+
+            <article class="publication-card">
+              <h3>Cross-platform prognostic microRNA study</h3>
+              <p class="muted"><em>EJC Skin Cancer</em>, 2026</p>
+              <ul class="bullet-list">
+                <li>Platform concordance assessment</li>
+                <li>Generalization of learned signatures</li>
+                <li>Comparative evaluation of predictive outputs</li>
+              </ul>
+            </article>
+
+            <article class="publication-card">
+              <h3>Liquid biopsy melanoma assay validation</h3>
+              <p class="muted"><em>British Journal of Dermatology</em>, 2023</p>
+              <ul class="bullet-list">
+                <li>Classification performance in noisy real-world sample settings</li>
+                <li>QC-sensitive modelling decisions</li>
+                <li>Risk stratification under practical deployment constraints</li>
+              </ul>
+            </article>
+
+            <article class="publication-card">
+              <h3>Precision oncology variant interpretation study</h3>
+              <p class="muted"><em>BMC Medical Genomics</em>, 2022</p>
+              <ul class="bullet-list">
+                <li>Evidence aggregation for rare and novel variants</li>
+                <li>Pattern analysis across diagnostic cases</li>
+                <li>Decision-support framing for clinical genomics</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <div>
+          <span class="section-label">Working Style</span>
+          <h2>What makes the analysis useful</h2>
+          <article class="impact-card">
+            <ul class="bullet-list">
+              <li>Models are shaped by deployment context, not just benchmark metrics.</li>
+              <li>Validation strategy is treated as part of the science, not a reporting afterthought.</li>
+              <li>Biological plausibility and analytical rigor are used together when prioritizing signals.</li>
+              <li>Outputs are designed to support decisions in research, diagnostics, and product development.</li>
+              <li>Tooling spans R, Bioconductor, Python, SQL, and reproducible workflow systems.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built for GitHub Pages as a dedicated view of data science methods used across publications and translational analysis.</p>
+    </footer>
+  </div>
+</body>
+</html>

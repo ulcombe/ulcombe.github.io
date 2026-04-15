@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bioinformatics Portfolio | Christopher Love, PhD</title>
+  <meta
+    name="description"
+    content="Bioinformatics portfolio for Christopher Love, PhD, featuring selected analyses, translational genomics projects, and publications."
+  >
+  <style>
+    :root {
+      --bg: #f4efe8;
+      --paper: rgba(255, 252, 247, 0.84);
+      --panel: #fffaf3;
+      --panel-strong: #f7efe4;
+      --ink: #1c2328;
+      --muted: #54626f;
+      --line: rgba(28, 35, 40, 0.12);
+      --accent: #b24a2d;
+      --accent-deep: #7c2f1c;
+      --accent-soft: #f0d6c7;
+      --shadow: 0 20px 50px rgba(62, 40, 24, 0.12);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(178, 74, 45, 0.18), transparent 32%),
+        radial-gradient(circle at 85% 18%, rgba(96, 125, 139, 0.14), transparent 20%),
+        linear-gradient(180deg, #f9f3eb 0%, var(--bg) 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-deep);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .page {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+      padding: 1rem 0 4rem;
+    }
+
+    .site-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .site-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.6rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid rgba(28, 35, 40, 0.08);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.5);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a[aria-current="page"] {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .hero,
+    section {
+      padding: 2rem;
+      border: 1px solid rgba(28, 35, 40, 0.08);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      margin-top: 1rem;
+      padding: 3.5rem;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 243, 0.95), rgba(245, 233, 220, 0.92)),
+        var(--paper);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -3rem -3rem auto;
+      width: 14rem;
+      height: 14rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(178, 74, 45, 0.2), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow,
+    .section-label {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(178, 74, 45, 0.1);
+      color: var(--accent-deep);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 12ch;
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      letter-spacing: -0.05em;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      max-width: 48rem;
+      margin: 1.2rem 0 0;
+      font-size: 1.12rem;
+      color: var(--muted);
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.8rem;
+    }
+
+    .button,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.9rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button {
+      background: var(--accent-deep);
+      color: #fffaf3;
+      box-shadow: 0 12px 25px rgba(124, 47, 28, 0.2);
+    }
+
+    .button-secondary {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .button:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .metric {
+      padding: 1.2rem;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.56);
+      border: 1px solid rgba(28, 35, 40, 0.08);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.7rem;
+      letter-spacing: -0.04em;
+    }
+
+    .metric span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    main {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+
+    .analysis-grid,
+    .publication-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .analysis-card,
+    .publication-card,
+    .focus-card {
+      padding: 1.4rem;
+      border-radius: 22px;
+      background: var(--panel);
+      border: 1px solid rgba(28, 35, 40, 0.08);
+    }
+
+    .analysis-card h3,
+    .publication-card h3,
+    .focus-card h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1.15rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 0.75rem 0 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .meta-row span {
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: var(--panel-strong);
+      color: var(--accent-deep);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .bullet-list {
+      margin: 0.8rem 0 0;
+      padding-left: 1.15rem;
+    }
+
+    .bullet-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.2rem;
+    }
+
+    footer {
+      padding: 2rem 0 0;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      section {
+        padding: 1.6rem;
+      }
+
+      .analysis-grid,
+      .publication-grid,
+      .focus-grid,
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero,
+      section,
+      .analysis-card,
+      .publication-card,
+      .focus-card {
+        animation: rise 720ms ease both;
+      }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Profile</a>
+      <a href="portfolio.html" aria-current="page">Bioinformatics</a>
+      <a href="data-science.html">Data Science</a>
+    </nav>
+
+    <header class="hero">
+      <span class="eyebrow">Bioinformatics Analysis Portfolio</span>
+      <h1>Selected bioinformatics analysis and publication work</h1>
+      <p class="lead">
+        This page highlights the kinds of analytical programs I lead: translational assay development,
+        rare disease interpretation, oncology-focused sequencing analysis, and publication-backed
+        bioinformatics delivered with reproducible methods and clinical awareness.
+      </p>
+      <div class="hero-links">
+        <a class="button" href="https://scholar.google.com/citations?hl=en&user=tC9YX6MAAAAJ" target="_blank" rel="noreferrer">View full publications</a>
+        <a class="button-secondary" href="data-science.html">View data science portfolio</a>
+        <a class="button-secondary" href="index.html">Back to profile</a>
+      </div>
+      <div class="hero-metrics" aria-label="Portfolio highlights">
+        <article class="metric">
+          <strong>Translational</strong>
+          <span>Assay and biomarker analysis for research and diagnostic settings</span>
+        </article>
+        <article class="metric">
+          <strong>Multi-omic</strong>
+          <span>RNA, DNA, methylation, microRNA, clinical metadata, and ML workflows</span>
+        </article>
+        <article class="metric">
+          <strong>Publication-backed</strong>
+          <span>Peer-reviewed outputs spanning melanoma, precision oncology, and tumour biology</span>
+        </article>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <span class="section-label">Analysis Portfolio</span>
+        <h2>Representative bioinformatics work</h2>
+        <div class="analysis-grid">
+          <article class="analysis-card">
+            <h3>Melanoma diagnostic signature development</h3>
+            <p class="muted">
+              Built and validated machine learning workflows around microRNA and RNA-seq data to support
+              invasive melanoma diagnosis and prognostic risk stratification.
+            </p>
+            <div class="meta-row">
+              <span>RNA-seq</span>
+              <span>microRNA</span>
+              <span>Machine learning</span>
+              <span>Clinical validation</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Developed reproducible modelling and feature-selection pipelines across discovery and validation cohorts.</li>
+              <li>Compared platform performance across sequencing and NanoString-style assay contexts.</li>
+              <li>Translated outputs into documentation suitable for accreditation and assay deployment.</li>
+            </ul>
+          </article>
+
+          <article class="analysis-card">
+            <h3>Liquid biopsy and FFPE assay interpretation</h3>
+            <p class="muted">
+              Designed analytics for challenging clinical sample types where signal quality, normalization,
+              and cross-platform comparability directly affected diagnostic confidence.
+            </p>
+            <div class="meta-row">
+              <span>FFPE</span>
+              <span>Liquid biopsy</span>
+              <span>QC</span>
+              <span>Biomarkers</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Implemented quality control strategies for low-input and clinically variable material.</li>
+              <li>Assessed robustness of signatures under real-world pathology and laboratory constraints.</li>
+              <li>Supported prognostic and diagnostic interpretation with publication-grade reporting.</li>
+            </ul>
+          </article>
+
+          <article class="analysis-card">
+            <h3>Rare disease transcriptomics and splicing analysis</h3>
+            <p class="muted">
+              Integrated sequence and expression evidence to investigate unresolved rare disease cases,
+              including aberrant splicing and regulatory mechanisms beyond routine pipelines.
+            </p>
+            <div class="meta-row">
+              <span>RNA analysis</span>
+              <span>Splicing</span>
+              <span>Clinical genomics</span>
+              <span>Case resolution</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Extended standard diagnostic interpretation with transcript-aware analysis workflows.</li>
+              <li>Combined expression shifts, splice events, and variant context into multidisciplinary reporting.</li>
+              <li>Helped prioritize biologically plausible findings in difficult clinical investigations.</li>
+            </ul>
+          </article>
+
+          <article class="analysis-card">
+            <h3>Precision oncology variant and tumour profiling support</h3>
+            <p class="muted">
+              Maintained and extended production-oriented genomics infrastructure for tumour profiling,
+              variant interpretation, and collaborative precision oncology review.
+            </p>
+            <div class="meta-row">
+              <span>Variant interpretation</span>
+              <span>Tumour profiling</span>
+              <span>Databases</span>
+              <span>Clinical reporting</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Supported review of rare and novel variants in a clinical cancer genomics environment.</li>
+              <li>Improved data systems and analyst workflows used by pathology and interpretation teams.</li>
+              <li>Contributed to scaling molecular diagnostics through careful curation and evidence synthesis.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="focus-grid">
+        <div>
+          <span class="section-label">Approach</span>
+          <h2>How the work is delivered</h2>
+          <div class="analysis-grid">
+            <article class="focus-card">
+              <h3>Reproducible by design</h3>
+              <p class="muted">Pipelines are built to be reviewable, rerunnable, and defensible across research, publication, and regulated settings.</p>
+            </article>
+            <article class="focus-card">
+              <h3>Biology-first interpretation</h3>
+              <p class="muted">Statistical and machine learning results are grounded in disease context, assay limitations, and real translational utility.</p>
+            </article>
+            <article class="focus-card">
+              <h3>Cross-functional communication</h3>
+              <p class="muted">Analysis is translated for scientists, clinicians, curators, software teams, and commercial stakeholders without losing rigor.</p>
+            </article>
+            <article class="focus-card">
+              <h3>From discovery to deployment</h3>
+              <p class="muted">The portfolio spans exploratory work, validation studies, publication support, and delivery into diagnostic workflows.</p>
+            </article>
+          </div>
+        </div>
+
+        <div>
+          <span class="section-label">Capabilities</span>
+          <h2>Common analysis modes</h2>
+          <article class="focus-card">
+            <ul class="bullet-list">
+              <li>Differential expression, classification, regression, clustering, and biomarker modelling</li>
+              <li>NGS assay QC, batch correction, normalization, and platform concordance assessment</li>
+              <li>Multi-omic integration across sequencing, expression, methylation, and clinical variables</li>
+              <li>Workflow implementation in R, Bioconductor, Python, SQL, Snakemake, HPC, and cloud settings</li>
+              <li>Technical documentation for publication, collaboration, accreditation, and handover</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <span class="section-label">Selected Publications</span>
+        <h2>Publications connected to this work</h2>
+        <div class="publication-grid">
+          <article class="publication-card">
+            <h3>RNA-seq validation of microRNA expression signatures for precision melanoma diagnosis and prognostic stratification</h3>
+            <p class="muted"><strong>Love CG</strong>, Coombs L, Van Laar R. <em>BMC Medical Genomics</em>, 2024.</p>
+            <p>Validation-focused study connecting translational assay development with clinically meaningful melanoma classification.</p>
+          </article>
+
+          <article class="publication-card">
+            <h3>Validation of a prognostic microRNA signature in early-stage melanoma across NanoString and RNA-sequencing platforms</h3>
+            <p class="muted">Van Laar R, Coombs L, <strong>Love CG</strong> et al. <em>EJC Skin Cancer</em>, 2026.</p>
+            <p>Cross-platform confirmation of a prognostic signature with direct relevance to reproducibility and assay portability.</p>
+          </article>
+
+          <article class="publication-card">
+            <h3>Validation of a microRNA liquid biopsy assay for diagnosis and risk stratification of invasive cutaneous melanoma</h3>
+            <p class="muted">Van Laar R, Latif B, King S, <strong>Love CG</strong> et al. <em>British Journal of Dermatology</em>, 2023.</p>
+            <p>Liquid biopsy-focused validation study addressing diagnostic performance in clinically practical sample contexts.</p>
+          </article>
+
+          <article class="publication-card">
+            <h3>Findings from precision oncology in the clinic: rare, novel variants are a significant contributor to scaling molecular diagnostics</h3>
+            <p class="muted">Doig KD, <strong>Love CG</strong> et al. <em>BMC Medical Genomics</em>, 2022.</p>
+            <p>Precision oncology work showing how uncommon variants materially shape diagnostic interpretation at scale.</p>
+          </article>
+
+          <article class="publication-card">
+            <h3>Therapeutic inhibition of the SRC-kinase HCK facilitates T cell tumor infiltration and improves response to immunotherapy</h3>
+            <p class="muted">Poh A, <strong>Love CG</strong> et al. <em>Science Advances</em>, 2022.</p>
+            <p>Example of broader translational cancer bioinformatics supporting mechanistic and therapeutic insight.</p>
+          </article>
+
+          <article class="publication-card">
+            <h3>Full publication record</h3>
+            <p class="muted">For the complete list of publications, citations, and author-position details, use the external profile below.</p>
+            <p><a href="https://scholar.google.com/citations?hl=en&user=tC9YX6MAAAAJ" target="_blank" rel="noreferrer">Open Google Scholar profile</a></p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built for GitHub Pages as a focused portfolio of bioinformatics analysis and publications.</p>
+    </footer>
+  </div>
+</body>
+</html>
