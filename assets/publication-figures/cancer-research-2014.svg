@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" role="img" aria-labelledby="title desc">
+  <title id="title">Colorectal cancer cell line subtype concordance</title>
+  <desc id="desc">Heatmap-like blocks showing concordance between cell line and primary tumour subtypes.</desc>
+  <rect width="640" height="380" rx="28" fill="#fcf6ee"/>
+  <rect x="24" y="24" width="592" height="332" rx="22" fill="#fffaf3" stroke="#e8ddd0"/>
+  <text x="48" y="60" fill="#7c2f1c" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Cell lines retain primary tumour architecture</text>
+  <text x="48" y="84" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">Integrated mutation, copy-number, and RNA-seq comparison against TCGA colorectal cancer</text>
+  <text x="92" y="132" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12">Cell lines</text>
+  <text x="42" y="198" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12" transform="rotate(-90 42 198)">Primary tumours</text>
+  <rect x="96" y="144" width="58" height="48" rx="8" fill="#6f8f7b"/>
+  <rect x="160" y="144" width="58" height="48" rx="8" fill="#d8c7b5"/>
+  <rect x="224" y="144" width="58" height="48" rx="8" fill="#d8c7b5"/>
+  <rect x="288" y="144" width="58" height="48" rx="8" fill="#d8c7b5"/>
+  <rect x="96" y="198" width="58" height="48" rx="8" fill="#d8c7b5"/>
+  <rect x="160" y="198" width="58" height="48" rx="8" fill="#b24a2d"/>
+  <rect x="224" y="198" width="58" height="48" rx="8" fill="#d8c7b5"/>
+  <rect x="288" y="198" width="58" height="48" rx="8" fill="#d8c7b5"/>
+  <rect x="96" y="252" width="58" height="48" rx="8" fill="#d8c7b5"/>
+  <rect x="160" y="252" width="58" height="48" rx="8" fill="#d8c7b5"/>
+  <rect x="224" y="252" width="58" height="48" rx="8" fill="#c49732"/>
+  <rect x="288" y="252" width="58" height="48" rx="8" fill="#d8c7b5"/>
+  <text x="104" y="326" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12">MMR</text>
+  <text x="165" y="326" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12">POLE</text>
+  <text x="228" y="326" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12">CIN</text>
+  <text x="293" y="326" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12">Other</text>
+  <rect x="424" y="128" width="138" height="168" rx="18" fill="#f7efe4" stroke="#e0d2c3"/>
+  <text x="450" y="168" fill="#7c2f1c" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Key readout</text>
+  <text x="450" y="198" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">Hypermutated and</text>
+  <text x="450" y="218" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">chromosomally unstable</text>
+  <text x="450" y="238" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">CRC subtypes in culture</text>
+  <text x="450" y="258" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">closely mirror the</text>
+  <text x="450" y="278" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">genomic structure of</text>
+  <text x="450" y="298" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">primary disease.</text>
+</svg>

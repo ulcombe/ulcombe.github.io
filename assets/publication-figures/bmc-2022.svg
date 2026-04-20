@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" role="img" aria-labelledby="title desc">
+  <title id="title">Precision oncology curation burden</title>
+  <desc id="desc">Bars for recurrent versus one-off variants and a callout for novel variants absent from public databases.</desc>
+  <rect width="640" height="380" rx="28" fill="#fcf6ee"/>
+  <rect x="24" y="24" width="592" height="332" rx="22" fill="#fffaf3" stroke="#e8ddd0"/>
+  <text x="48" y="60" fill="#7c2f1c" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Variant interpretation does not scale linearly</text>
+  <text x="48" y="84" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">48,036 patients, 95,954 samples, 23,255 clinically reported variants</text>
+  <line x1="72" y1="288" x2="382" y2="288" stroke="#b8aa99" stroke-width="2"/>
+  <rect x="108" y="126" width="88" height="162" rx="12" fill="#6f8f7b"/>
+  <rect x="254" y="190" width="88" height="98" rx="12" fill="#b24a2d"/>
+  <text x="103" y="308" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">Seen again</text>
+  <text x="258" y="308" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">One-off</text>
+  <text x="98" y="118" fill="#6f8f7b" font-family="Arial, Helvetica, sans-serif" font-size="13">74.1%</text>
+  <text x="250" y="182" fill="#b24a2d" font-family="Arial, Helvetica, sans-serif" font-size="13">25.9%</text>
+  <rect x="434" y="112" width="132" height="152" rx="18" fill="#f7efe4" stroke="#e0d2c3"/>
+  <text x="456" y="150" fill="#7c2f1c" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">28.6%</text>
+  <text x="456" y="178" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">of unique reported variants</text>
+  <text x="456" y="198" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">were absent from common</text>
+  <text x="456" y="218" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">public resources and needed</text>
+  <text x="456" y="238" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">de novo curation.</text>
+</svg>

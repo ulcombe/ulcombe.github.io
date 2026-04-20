@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" role="img" aria-labelledby="title desc">
+  <title id="title">Melanoma liquid biopsy validation</title>
+  <desc id="desc">ROC curve and risk-group survival sketch representing high diagnostic accuracy and three prognostic groups.</desc>
+  <rect width="640" height="380" rx="28" fill="#fcf6ee"/>
+  <rect x="24" y="24" width="592" height="332" rx="22" fill="#fffaf3" stroke="#e8ddd0"/>
+  <text x="48" y="60" fill="#7c2f1c" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">MEL38 diagnosis + MEL12 prognosis</text>
+  <text x="48" y="84" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">Plasma microRNA profiling, ROC analysis, long-term survival groups</text>
+  <line x1="72" y1="268" x2="248" y2="268" stroke="#b8aa99" stroke-width="2"/>
+  <line x1="72" y1="268" x2="72" y2="118" stroke="#b8aa99" stroke-width="2"/>
+  <path d="M72 268 C92 252, 108 230, 128 194 S174 128, 248 118" fill="none" stroke="#b24a2d" stroke-width="5" stroke-linecap="round"/>
+  <path d="M72 268 L248 118" fill="none" stroke="#d8c7b5" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="88" y="126" fill="#7c2f1c" font-family="Arial, Helvetica, sans-serif" font-size="13">AUC 0.98</text>
+  <text x="74" y="286" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12">False positive rate</text>
+  <text x="24" y="196" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12" transform="rotate(-90 24 196)">True positive rate</text>
+  <line x1="332" y1="268" x2="576" y2="268" stroke="#b8aa99" stroke-width="2"/>
+  <line x1="332" y1="268" x2="332" y2="118" stroke="#b8aa99" stroke-width="2"/>
+  <path d="M340 132 C386 138, 406 152, 430 170 S474 212, 500 232 S546 252, 570 258" fill="none" stroke="#6f8f7b" stroke-width="4" stroke-linecap="round"/>
+  <path d="M340 142 C388 150, 412 174, 436 198 S480 226, 514 244 S548 256, 570 262" fill="none" stroke="#c49732" stroke-width="4" stroke-linecap="round"/>
+  <path d="M340 156 C390 178, 420 208, 450 228 S498 250, 534 260 S556 264, 570 266" fill="none" stroke="#b24a2d" stroke-width="4" stroke-linecap="round"/>
+  <text x="474" y="128" fill="#6f8f7b" font-family="Arial, Helvetica, sans-serif" font-size="12">Low risk</text>
+  <text x="474" y="146" fill="#c49732" font-family="Arial, Helvetica, sans-serif" font-size="12">Standard</text>
+  <text x="474" y="164" fill="#b24a2d" font-family="Arial, Helvetica, sans-serif" font-size="12">High risk</text>
+  <text x="336" y="286" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12">Years</text>
+  <text x="286" y="196" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12" transform="rotate(-90 286 196)">Melanoma-specific survival</text>
+</svg>

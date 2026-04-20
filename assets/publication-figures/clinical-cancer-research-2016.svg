@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" role="img" aria-labelledby="title desc">
+  <title id="title">BRAF V600E colorectal cancer subtypes</title>
+  <desc id="desc">Two subtype bars and pathway markers representing BM1 and BM2.</desc>
+  <rect width="640" height="380" rx="28" fill="#fcf6ee"/>
+  <rect x="24" y="24" width="592" height="332" rx="22" fill="#fffaf3" stroke="#e8ddd0"/>
+  <text x="48" y="60" fill="#7c2f1c" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">BRAF V600E CRC is not one biology</text>
+  <text x="48" y="84" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">Non-negative matrix factorization split 218 tumours into BM1 and BM2</text>
+  <rect x="92" y="124" width="176" height="168" rx="18" fill="#f0d6c7"/>
+  <rect x="312" y="124" width="176" height="168" rx="18" fill="#f7efe4"/>
+  <text x="158" y="154" fill="#7c2f1c" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">BM1</text>
+  <text x="378" y="154" fill="#7c2f1c" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">BM2</text>
+  <text x="132" y="186" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">EMT</text>
+  <text x="132" y="208" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">KRAS / AKT</text>
+  <text x="132" y="230" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">mTOR / 4EBP1</text>
+  <text x="352" y="186" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">Cell cycle</text>
+  <text x="352" y="208" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">CDK1 high</text>
+  <text x="352" y="230" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">Cyclin D1 low</text>
+  <rect x="116" y="246" width="124" height="16" rx="8" fill="#b24a2d"/>
+  <rect x="336" y="246" width="92" height="16" rx="8" fill="#6f8f7b"/>
+  <text x="102" y="314" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12">Expression subtyping exposes treatment-relevant heterogeneity.</text>
+</svg>

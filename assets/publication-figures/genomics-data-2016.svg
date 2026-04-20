@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" role="img" aria-labelledby="title desc">
+  <title id="title">APC restoration differential expression</title>
+  <desc id="desc">Volcano-style plot and pathway labels representing APC-dependent transcriptional shifts.</desc>
+  <rect width="640" height="380" rx="28" fill="#fcf6ee"/>
+  <rect x="24" y="24" width="592" height="332" rx="22" fill="#fffaf3" stroke="#e8ddd0"/>
+  <text x="48" y="60" fill="#7c2f1c" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">APC restoration rewired colorectal expression programs</text>
+  <text x="48" y="84" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">RNA-seq with TMM normalization, edgeR GLM testing, and pathway enrichment</text>
+  <line x1="72" y1="276" x2="296" y2="276" stroke="#b8aa99" stroke-width="2"/>
+  <line x1="184" y1="276" x2="184" y2="126" stroke="#d8c7b5" stroke-width="2" stroke-dasharray="6 6"/>
+  <circle cx="132" cy="238" r="7" fill="#6f8f7b"/>
+  <circle cx="116" cy="214" r="7" fill="#6f8f7b"/>
+  <circle cx="96" cy="194" r="7" fill="#6f8f7b"/>
+  <circle cx="226" cy="228" r="7" fill="#b24a2d"/>
+  <circle cx="252" cy="202" r="7" fill="#b24a2d"/>
+  <circle cx="276" cy="176" r="7" fill="#b24a2d"/>
+  <text x="120" y="302" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12">Down</text>
+  <text x="228" y="302" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12">Up</text>
+  <text x="76" y="110" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="12">1,735 significant genes</text>
+  <rect x="364" y="126" width="188" height="154" rx="18" fill="#f7efe4" stroke="#e0d2c3"/>
+  <text x="392" y="162" fill="#7c2f1c" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Enriched processes</text>
+  <text x="392" y="190" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">Wnt signaling</text>
+  <text x="392" y="212" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">Cell polarity</text>
+  <text x="392" y="234" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">Adhesion / junctions</text>
+  <text x="392" y="256" fill="#54626f" font-family="Arial, Helvetica, sans-serif" font-size="13">EMT and cell movement</text>
+</svg>

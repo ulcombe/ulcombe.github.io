@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications | Christopher Love, PhD</title>
+  <meta
+    name="description"
+    content="Publication summaries and representative analysis figures spanning melanoma biomarkers, colorectal cancer genomics, precision oncology, and tumour immunology."
+  >
+  <style>
+    :root {
+      --bg: #f4efe8;
+      --paper: rgba(255, 252, 247, 0.84);
+      --panel: #fffaf3;
+      --panel-strong: #f7efe4;
+      --ink: #1c2328;
+      --muted: #54626f;
+      --line: rgba(28, 35, 40, 0.12);
+      --accent: #b24a2d;
+      --accent-deep: #7c2f1c;
+      --shadow: 0 20px 50px rgba(62, 40, 24, 0.12);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(178, 74, 45, 0.18), transparent 32%),
+        radial-gradient(circle at 85% 18%, rgba(96, 125, 139, 0.14), transparent 20%),
+        linear-gradient(180deg, #f9f3eb 0%, var(--bg) 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-deep);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .page {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+      padding: 1rem 0 4rem;
+    }
+
+    .site-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .site-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.6rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid rgba(28, 35, 40, 0.08);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.5);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a[aria-current="page"] {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .hero,
+    section {
+      padding: 2rem;
+      border: 1px solid rgba(28, 35, 40, 0.08);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      margin-top: 1rem;
+      padding: 3.5rem;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 243, 0.95), rgba(245, 233, 220, 0.92)),
+        var(--paper);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -3rem -3rem auto;
+      width: 15rem;
+      height: 15rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(178, 74, 45, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow,
+    .section-label {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(178, 74, 45, 0.1);
+      color: var(--accent-deep);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 13ch;
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      letter-spacing: -0.05em;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      max-width: 52rem;
+      margin: 1.2rem 0 0;
+      font-size: 1.12rem;
+      color: var(--muted);
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.8rem;
+    }
+
+    .button,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.9rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button {
+      background: var(--accent-deep);
+      color: #fffaf3;
+      box-shadow: 0 12px 25px rgba(124, 47, 28, 0.2);
+    }
+
+    .button-secondary {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .button:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .metric {
+      padding: 1.2rem;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.56);
+      border: 1px solid rgba(28, 35, 40, 0.08);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.7rem;
+      letter-spacing: -0.04em;
+    }
+
+    .metric span,
+    .muted {
+      color: var(--muted);
+    }
+
+    .metric span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+    }
+
+    main {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+
+    .pub-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .pub-card {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1.25rem;
+      padding: 1.25rem;
+      border-radius: 24px;
+      background: var(--panel);
+      border: 1px solid rgba(28, 35, 40, 0.08);
+    }
+
+    .figure-panel {
+      display: grid;
+      gap: 0.75rem;
+      align-content: start;
+    }
+
+    .figure-panel img {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(28, 35, 40, 0.08);
+      background: #fcf6ee;
+    }
+
+    .figure-caption {
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+
+    .pub-card h3 {
+      font-size: 1.22rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 0.75rem 0 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .meta-row span {
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: var(--panel-strong);
+      color: var(--accent-deep);
+    }
+
+    .journal-line {
+      margin: 0 0 0.5rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.9rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    footer {
+      padding: 2rem 0 0;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      section {
+        padding: 1.6rem;
+      }
+
+      .hero-metrics,
+      .pub-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero,
+      section,
+      .pub-card,
+      .metric {
+        animation: rise 720ms ease both;
+      }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Profile</a>
+      <a href="portfolio.html">Bioinformatics</a>
+      <a href="data-science.html">Data Science</a>
+      <a href="publications.html" aria-current="page">Publications</a>
+    </nav>
+
+    <header class="hero">
+      <span class="eyebrow">Publication Analysis</span>
+      <h1>Publications</h1>
+      <p class="lead">
+        This page turns the publication set into a readable bioinformatics portfolio: each paper includes a
+        short summary of the computational methods, modelling, and data-integration work it depended on,
+        alongside a representative plot or graphical abstract.
+      </p>
+      <div class="hero-links">
+        <a class="button" href="https://scholar.google.com/citations?hl=en&user=tC9YX6MAAAAJ" target="_blank" rel="noreferrer">Google Scholar profile</a>
+        <a class="button-secondary" href="portfolio.html">Bioinformatics portfolio</a>
+        <a class="button-secondary" href="data-science.html">Data science portfolio</a>
+      </div>
+      <div class="hero-metrics" aria-label="Publication overview">
+        <article class="metric">
+          <strong>9 papers</strong>
+          <span>Spanning translational melanoma, colorectal cancer genomics, and immuno-oncology</span>
+        </article>
+        <article class="metric">
+          <strong>Multi-platform</strong>
+          <span>RNA-seq, microRNA profiling, exome, copy number, pathway analysis, and clinical modeling</span>
+        </article>
+        <article class="metric">
+          <strong>Clinically grounded</strong>
+          <span>Diagnostic, prognostic, and molecular interpretation workflows designed for real decision-making</span>
+        </article>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <span class="section-label">Publications</span>
+        <h2>Summaries and representative figures</h2>
+        <div class="pub-list">
+          <article class="pub-card">
+            <div class="figure-panel">
+              <img src="assets/publication-figures/bjd-2023.svg" alt="Representative ROC and survival-stratification plot for the 2023 melanoma liquid biopsy paper.">
+              <p class="figure-caption">Representative plot: MEL38 diagnostic separation and MEL12 survival-risk stratification in plasma.</p>
+            </div>
+            <div>
+              <h3>Validation of a microRNA liquid biopsy assay for diagnosis and risk stratification of invasive cutaneous melanoma</h3>
+              <p class="journal-line"><em>British Journal of Dermatology</em>, 2023</p>
+              <div class="meta-row">
+                <span>Liquid biopsy</span>
+                <span>microRNA</span>
+                <span>ROC analysis</span>
+                <span>Survival modelling</span>
+              </div>
+              <p>
+                This study centered on the bioinformatics validation of circulating microRNA signatures in a large multicentre plasma cohort. The work involved cohort-scale expression processing, score construction for MEL38 and MEL12, threshold optimisation, ROC analysis, predictive value estimation, and survival modelling against established clinicopathologic variables. The main contribution was showing that a reproducible microRNA analysis workflow could generate both diagnostic and prognostic signal from liquid biopsy data at clinically relevant scale.
+              </p>
+              <div class="link-row">
+                <a href="https://doi.org/10.1093/bjd/ljad137" target="_blank" rel="noreferrer">DOI</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="figure-panel">
+              <img src="assets/publication-figures/bmc-2024.svg" alt="Representative cross-platform microRNA validation plot for the 2024 BMC Medical Genomics paper.">
+              <p class="figure-caption">Representative plot: MEL38 and MEL12 performance carried from NanoString-style discovery into RNA-seq validation.</p>
+            </div>
+            <div>
+              <h3>RNA-seq validation of microRNA expression signatures for precision melanoma diagnosis and prognostic stratification</h3>
+              <p class="journal-line"><em>BMC Medical Genomics</em>, 2024</p>
+              <div class="meta-row">
+                <span>RNA-seq</span>
+                <span>Cross-platform validation</span>
+                <span>Diagnostic modelling</span>
+                <span>Prognostic groups</span>
+              </div>
+              <p>
+                This paper focused on cross-platform bioinformatics translation of melanoma microRNA signatures into RNA-seq data. Using plasma, FFPE tissue, and external cohorts, the analysis rebuilt MEL38 and MEL12 scoring in sequencing-derived expression space, normalized data across assay types, and benchmarked model performance against clinical covariates and published alternatives. The key contribution was demonstrating that the signal survived a change in measurement technology through careful feature definition, data harmonisation, and reproducible computational modelling.
+              </p>
+              <div class="link-row">
+                <a href="https://doi.org/10.1186/s12920-024-02028-w" target="_blank" rel="noreferrer">DOI</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="figure-panel">
+              <img src="assets/publication-figures/bmc-2022.svg" alt="Representative variant recurrence and novel variant burden plot for the 2022 precision oncology paper.">
+              <p class="figure-caption">Representative plot: recurrent versus one-off variants and the hidden curation burden from novel findings.</p>
+            </div>
+            <div>
+              <h3>Findings from precision oncology in the clinic: rare, novel variants are a significant contributor to scaling molecular diagnostics</h3>
+              <p class="journal-line"><em>BMC Medical Genomics</em>, 2022</p>
+              <div class="meta-row">
+                <span>Precision oncology</span>
+                <span>Variant curation</span>
+                <span>Clinical sequencing</span>
+                <span>Operational analytics</span>
+              </div>
+              <p>
+                This study examined the bioinformatics operational load created by high-throughput clinical sequencing in a real pathology setting. Across 48,036 cases, the work quantified variant recurrence, local knowledgebase reuse, the accumulation of novel findings, and the proportion of reportable variants missing from public resources. The main message is that scalable molecular diagnostics depends not just on sequencing itself, but on durable curation infrastructure, local evidence systems, and analyst workflows that can manage rare and previously unseen variation.
+              </p>
+              <div class="link-row">
+                <a href="https://doi.org/10.1186/s12920-022-01214-y" target="_blank" rel="noreferrer">DOI</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="figure-panel">
+              <img src="assets/publication-figures/cancer-research-2014.svg" alt="Representative molecular subtype concordance heatmap for the 2014 Cancer Research paper.">
+              <p class="figure-caption">Representative plot: colorectal cancer cell lines recover the same major subtype structure seen in primary tumours.</p>
+            </div>
+            <div>
+              <h3>Colorectal cancer cell lines are representative models of the main molecular subtypes of primary cancer</h3>
+              <p class="journal-line"><em>Cancer Research</em>, 2014</p>
+              <div class="meta-row">
+                <span>Whole-exome sequencing</span>
+                <span>Copy number</span>
+                <span>RNA-seq</span>
+                <span>Subtype mapping</span>
+              </div>
+              <p>
+                This paper was built around multi-omic integration across exome sequencing, copy-number profiling, and RNA-seq in 70 colorectal cancer cell lines. The bioinformatics task was to align these data types with TCGA tumour cohorts and test whether cell lines preserve the subtype structure and pathway architecture seen in primary disease. The key contribution was a comparative genomics framework showing that widely used model systems retain major molecular classes closely enough to support downstream mechanistic and therapeutic analysis.
+              </p>
+              <div class="link-row">
+                <a href="https://doi.org/10.1158/0008-5472.CAN-14-0013" target="_blank" rel="noreferrer">DOI</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="figure-panel">
+              <img src="assets/publication-figures/cancer-cell-2017.png" alt="Graphical abstract from the 2017 Cancer Cell paper showing how HCK activity in myeloid cells supports colon cancer progression.">
+              <p class="figure-caption">Graphical abstract from the paper PDF: HCK-driven myeloid activity is linked to poorer survival and colon cancer progression.</p>
+            </div>
+            <div>
+              <h3>Inhibition of Hematopoietic Cell Kinase Activity Suppresses Myeloid Cell-Mediated Colon Cancer Progression</h3>
+              <p class="journal-line"><em>Cancer Cell</em>, 2017</p>
+              <div class="meta-row">
+                <span>Colon cancer</span>
+                <span>Myeloid biology</span>
+                <span>HCK</span>
+                <span>Therapeutic targeting</span>
+              </div>
+              <p>
+                This Cancer Cell study combined tumour profiling, immune-state readouts, and outcome association to examine how HCK-driven myeloid biology supports colon cancer progression. From a bioinformatics perspective, the work integrated molecular measurements with survival and tumour-microenvironment signals to connect kinase activity, macrophage state, and disease behaviour. The contribution here is the computational interpretation layer that linked a myeloid regulatory program to a tractable therapeutic target.
+              </p>
+              <div class="link-row">
+                <a href="https://doi.org/10.1016/j.ccell.2017.03.006" target="_blank" rel="noreferrer">DOI</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="figure-panel">
+              <img src="assets/publication-figures/clinical-cancer-research-2016.svg" alt="Representative subtype and pathway activation plot for the 2016 Clinical Cancer Research paper.">
+              <p class="figure-caption">Representative plot: BM1 and BM2 split a poor-prognosis genotype into two biologically different expression states.</p>
+            </div>
+            <div>
+              <h3>BRAF V600E Mutant Colorectal Cancer Subtypes Based on Gene Expression</h3>
+              <p class="journal-line"><em>Clinical Cancer Research</em>, 2017</p>
+              <div class="meta-row">
+                <span>Unsupervised clustering</span>
+                <span>Gene expression</span>
+                <span>Pathway analysis</span>
+                <span>Proteomic validation</span>
+              </div>
+              <p>
+                This paper used gene-expression bioinformatics to resolve heterogeneity within BRAF V600E colorectal cancer. Applying non-negative matrix factorization to a large transcriptional cohort, the analysis defined two robust subtypes, BM1 and BM2, and connected them to distinct pathway programs including EMT, AKT-mTOR signalling, and cell-cycle regulation. The main contribution was an unsupervised classification framework that turned a single genotype into a more informative molecular taxonomy for downstream biological and therapeutic interpretation.
+              </p>
+              <div class="link-row">
+                <a href="https://doi.org/10.1158/1078-0432.CCR-16-0140" target="_blank" rel="noreferrer">DOI</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="figure-panel">
+              <img src="assets/publication-figures/ejc-2026.svg" alt="Representative survival and cross-platform concordance plot for the 2026 EJC Skin Cancer paper.">
+              <p class="figure-caption">Representative plot: MEL12 preserved prognostic ranking across training, validation, and two profiling platforms.</p>
+            </div>
+            <div>
+              <h3>Validation of a prognostic microRNA signature in early-stage melanoma across NanoString and RNA-sequencing platforms</h3>
+              <p class="journal-line"><em>EJC Skin Cancer</em>, 2026</p>
+              <div class="meta-row">
+                <span>Early-stage melanoma</span>
+                <span>Cox modelling</span>
+                <span>Cross-platform validation</span>
+                <span>Long-term survival</span>
+              </div>
+              <p>
+                This work emphasized prognostic modelling and cross-platform robustness for the MEL12 microRNA signature in early-stage melanoma. The bioinformatics pipeline used principal-component based Cox regression, leave-one-out validation, frozen model transfer, and multivariable testing against standard clinicopathologic features across NanoString and RNA-seq datasets. The key result was that the prognostic signal remained stable under assay translation, highlighting the portability of a carefully defined genomic risk model.
+              </p>
+              <div class="link-row">
+                <a href="https://doi.org/10.1016/j.ejcskn.2026.101127" target="_blank" rel="noreferrer">DOI</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="figure-panel">
+              <img src="assets/publication-figures/genomics-data-2016.svg" alt="Representative differential expression plot for the 2016 Genomics Data paper.">
+              <p class="figure-caption">Representative plot: APC restoration shifts expression programs tied to polarity, adhesion, Wnt signaling, and EMT.</p>
+            </div>
+            <div>
+              <h3>Differential RNA-seq analysis comparing APC-defective and APC-restored SW480 colorectal cancer cells</h3>
+              <p class="journal-line"><em>Genomics Data</em>, 2016</p>
+              <div class="meta-row">
+                <span>Differential expression</span>
+                <span>edgeR</span>
+                <span>Pathway enrichment</span>
+                <span>CRC biology</span>
+              </div>
+              <p>
+                This publication is primarily a reproducible RNA-seq analysis resource. Using replicated sequencing, TMM normalisation, and edgeR generalized linear models, the work quantified transcriptomic changes after APC restoration in the SW480 colorectal cancer system and mapped those changes onto Wnt, EMT, polarity, adhesion, and migration pathways. Its bioinformatics value lies in making both the dataset and the differential-expression workflow explicit and reusable for downstream studies of APC biology.
+              </p>
+              <div class="link-row">
+                <a href="https://doi.org/10.1016/j.gdata.2016.02.001" target="_blank" rel="noreferrer">DOI</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="figure-panel">
+              <img src="assets/publication-figures/science-advances-2022.svg" alt="Representative tumour growth and T-cell infiltration plot for the 2022 Science Advances paper.">
+              <p class="figure-caption">Representative plot: HCK inhibition reshapes myeloid state, increases T-cell infiltration, and improves immunotherapy response.</p>
+            </div>
+            <div>
+              <h3>Therapeutic inhibition of the SRC-kinase HCK facilitates T cell tumor infiltration and improves response to immunotherapy</h3>
+              <p class="journal-line"><em>Science Advances</em>, 2022</p>
+              <div class="meta-row">
+                <span>Immuno-oncology</span>
+                <span>Tumour microenvironment</span>
+                <span>Mouse models</span>
+                <span>Translational analysis</span>
+              </div>
+              <p>
+                This study combined tumour growth data, immune profiling, and treatment-response analysis to evaluate the systems-level consequences of HCK inhibition. The bioinformatics component involved integrating pathway perturbation with immune-cell composition and response phenotypes across multiple model settings, allowing myeloid reprogramming and T-cell infiltration to be interpreted quantitatively rather than descriptively. The result was a computationally supported translational picture of how kinase inhibition reshapes the tumour microenvironment to improve immunotherapy response.
+              </p>
+              <div class="link-row">
+                <a href="https://doi.org/10.1126/sciadv.abl7882" target="_blank" rel="noreferrer">DOI</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Representative plot cards summarize the main analytical signal from each paper and are intended as portfolio visuals rather than exact journal figure reproductions.</p>
+    </footer>
+  </div>
+</body>
+</html>
